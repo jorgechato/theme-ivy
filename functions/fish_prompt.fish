@@ -32,7 +32,7 @@ function fish_prompt
 	printf (green)$cwd" "(off)
 
     #Git
-	set -l symbol "\$ "
+	set -l symbol "\$"
     set -l code $status
 
 	if test -n "$SSH_CLIENT"
