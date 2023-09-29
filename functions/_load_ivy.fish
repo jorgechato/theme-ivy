@@ -28,6 +28,10 @@ function white
     set_color -o ECECEC
 end
 
+function silver
+    set_color -o C8C8C8
+end
+
 function dim
     set_color -o 808080
 end
