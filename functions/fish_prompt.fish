@@ -17,10 +17,11 @@ function fish_prompt
 
 	command -sq kubectl; and k8s::current_context >/dev/null 2>/dev/null; and begin
 		set -l k8s_namespace (k8s::current_namespace)
+        set -l k8s_ctx (string split '-' (string split '_' (k8s::current_context) | tail -1) | head -1)
 		if test -z "$k8s_namespace"
-			printf (yellow)"("(dim)(k8s::current_context)(yellow)") "(off)
+			printf (yellow)"("(dim)$k8s_ctx(yellow)") "(off)
 		else
-			printf (yellow)"("(dim)(k8s::current_context)"/$k8s_namespace"(yellow)") "(off)
+			printf (yellow)"("(dim)$k8s_ctx":"(silver)"$k8s_namespace"(yellow)") "(off)
 		end
 	end
 
